@@ -5,7 +5,6 @@ const cors = require('cors');
 //body-parser
 const bodyParser = require('body-parser');
 
-const cors = require('cors');
 var router = require('./routes/routes.js');
 app.use(bodyParser.urlencoded({ extended: true }));
 //JSON 사용
@@ -19,7 +18,6 @@ app.listen('8081', () => {
     console.log('listening on 8081');
 });
 
-u
 //app.set('view engine', 'ejs');
 
 // //MondgoDb연결

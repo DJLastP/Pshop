@@ -2,7 +2,6 @@
   <div>
     <userHeader />
     <router-view></router-view>
-    <input type="button" value="abc" @click="more()" class="btn btn-primary" />
   </div>
 </template>
 

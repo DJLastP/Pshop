@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg bg-danger">
+    <nav class="navbar navbar-expand-lg bg-danger rounded-4 rounded-top-0">
       <div class="container-fluid">
         <a class="navbar-brand text-light" href="#">PeterShop</a>
         <button
