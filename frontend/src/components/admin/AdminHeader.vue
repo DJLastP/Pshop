@@ -2,31 +2,32 @@
   <div>
     <nav class="navbar navbar-expand-lg bg-danger rounded-4 rounded-top-0">
       <div class="container-fluid">
-        <a class="navbar-brand text-light" href="#">PeterShop</a>
+        <a class="navbar-brand text-light" href="#">PeterShop(관리자페이지)</a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          data-bs-target="#adminNavbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="adminNavbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+              <a class="nav-link active text-light" aria-current="page" href="#"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/itemList">주문하기</a>
+              <a class="nav-link text-light" href="/setItem">상품관리</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/">주문내역</a>
+              <a class="nav-link text-light" href="">주문내역</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/">내정보</a>
+              <a class="nav-link text-light" href="">회원관리</a>
             </li>
           </ul>
         </div>
@@ -37,7 +38,7 @@
 
 <script>
 export default {
-  name: "UserHeader",
+  name: "AdminHeader",
 };
 </script>
 

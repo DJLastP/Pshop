@@ -1,12 +1,9 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
-var priceSchema = mongoose.Schema({
-    _id: { type: mongoose.Schema.Types.ObjectId, auto: true, unique: true},
+const priceSchema = mongoose.Schema({
     itemPrices : { type: Object, required: true },
     date: { type: Date, default: Date.now }
 });
 
-var Price = mongoose.model('Price', priceSchema);
-
+const Price = mongoose.model('Price', priceSchema);
 module.exports = Price;

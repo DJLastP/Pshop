@@ -1,21 +1,25 @@
 //라이브러리 import
 const express = require('express');
+require('dotenv').config();
 const app = express();
 const cors = require('cors');
+const port = process.env.PORT
 //body-parser
 const bodyParser = require('body-parser');
 
-var router = require('./routes/routes.js');
+const priceRoutes = require('./routes/priceRoutes.js');
+const itemInfoRoutes = require('./routes/ItemInfoRoutes.js');
 app.use(bodyParser.urlencoded({ extended: true }));
 //JSON 사용
 app.use(express.json());
 //CORS보안해제
 app.use(cors());
 //라우터설정
-app.use("/api", router);
+app.use("/admin", priceRoutes);
+app.use("/admin/setItem", itemInfoRoutes);
 //서버오픈
-app.listen('8081', () => {
-    console.log('listening on 8081');
+app.listen(port, () => {
+    console.log('listening on ' + port);
 });
 
 //app.set('view engine', 'ejs');

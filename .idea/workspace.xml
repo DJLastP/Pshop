@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="04be2e71-ee5f-4cd7-a6ba-fff49f38a82b" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/controllers/AdminController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/AdminController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/Stock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/user/ItemPrice.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/AdminController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/priceController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/Admin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/Price.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Price.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/priceRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/Item.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/user/ItemList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/ItemList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/user/UserHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/UserHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,6 +44,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2S3KaNzeK1JEhZJoZd9kHY8xnbf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
@@ -38,16 +58,29 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jisooyoon/Documents/vscode/Pshop/Pshop",
+    "last_opened_file_path": "/Users/jisooyoon/Documents/vscode/Pshop/Pshop/frontend/src/components/admin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/components/admin" />
+      <recent name="$PROJECT_DIR$/backend/models" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -57,10 +90,23 @@
       <option name="presentableId" value="Default" />
       <updated>1688369887870</updated>
       <workItem from="1688369889356" duration="59000" />
+      <workItem from="1688428619055" duration="1505000" />
+      <workItem from="1688527451382" duration="12723000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

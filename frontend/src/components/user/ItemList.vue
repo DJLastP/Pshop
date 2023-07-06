@@ -1,38 +1,30 @@
 <template>
   <div>
-    <div class="row mx-2 px-1">
-      {{ itemPrice['상품1'] }}
-      {{ itemPrice['상품2'] }}
-      {{ itemPrice['상품3'] }}
-      {{ regDate }}
+    <div>
+      <h3 class="text-center">주문하기</h3>
+      <ItemPrice ref="test"></ItemPrice>
+      <button @click="getChildData()">test</button>
+    </div>
+    <div>
+
     </div>
   </div>
 </template>
 
 <script>
+import ItemPrice from "@/components/user/ItemPrice.vue";
 export default {
-  name: "ItemList",
-  data() {
-    return {
-      itemPrice: {},
-      regDate: ''
-    };
-  },
-  created() {
-    this.dataLoad();
+  name: "order",
+  components: {
+    ItemPrice
   },
   methods: {
-    dataLoad(){
-      this.$axios.get("http://localhost:8081/api/getPrice")
-      .then(result =>{
-        this.itemPrice = result.data.itemPrices;
-        this.regDate = result.data.date;
-
-      console.log(this.$moment().format(result.data.date, 'YYYY-MM-DD').inValid());
-    });
+    getChildData() {
+      const childData = this.$refs.test.$refs.myInput;
+      console.log(childData[0].textContent);
     }
   }
-};
+}
 </script>
 
 <style>

@@ -1,39 +1,29 @@
 <template>
-  <div>
-    <userHeader />
-    <AdminHeader/>
-    <router-view></router-view>
+  <div class="">
+    <div class="justify-content-center d-flex">
+      <span ref="myInput" v-for="(item,index) of items" :key="index">{{item}}</span>
+    </div>
+    <div class="justify-content-center d-flex">
+      <span v-for="(price,index) of itemPrices" :key="index">{{price}}</span>
+    </div>
+    <div class="justify-content-center d-flex">
+      <span>상품재고현황</span>
+    </div>
   </div>
 </template>
-
-
-
 <script>
-import UserHeader from "./components/user/UserHeader.vue";
-import AdminHeader from "./components/admin/AdminHeader.vue";
-
 export default {
-  name: "App",
+  name: "itemPrice",
   data() {
     return {
       items: [],
       itemPrices: [],
       itemCnt: 0,
-    };
-  },
-  components: {
-    UserHeader,
-    AdminHeader,
-  },
+    }},
   created() {
     this.getItemInfo();
   },
   methods: {
-    more() {
-      this.$axios.get("http://localhost:8081/api/user").then((result) => {
-        console.log(result);
-      });
-    },
     getItemInfo(){
       this.$axios.get('/api/admin/setItem/getItemInfo').then((result)=>{
         this.items = Object.keys(result.data.items);
@@ -42,12 +32,12 @@ export default {
         });
         this.itemCnt = result.data.itemCnt;
       });
-    },
-  },
-};
+    }
+  }
+
+}
 </script>
 
-
-
 <style>
+
 </style>
