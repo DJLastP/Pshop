@@ -1,12 +1,15 @@
 <template>
   <div>
-    <userHeader />
-    <AdminHeader/>
-    <router-view></router-view>
+    <userHeader v-if="memRole === 'USER'"/>
+    <AdminHeader v-if="memRole ==='ADMIN'"/>
+    <router-view :itemName="itemName" :itemPrices="itemPrices" :itemCnt="itemCnt"
+                 :itemStock="itemStock" @addItem="addItem()" @removeItem="removeItem()"
+                 @price="setPrice" @stock="setStock" @editTitle="setTitle" @loginSucces="setMeminfo">
+    </router-view>
+
+    {{memRole}}
   </div>
 </template>
-
-
 
 <script>
 import UserHeader from "./components/user/UserHeader.vue";
@@ -16,9 +19,11 @@ export default {
   name: "App",
   data() {
     return {
-      items: [],
+      itemName: [],
       itemPrices: [],
       itemCnt: 0,
+      itemStock: [],
+      memRole: '',
     };
   },
   components: {
@@ -27,22 +32,37 @@ export default {
   },
   created() {
     this.getItemInfo();
+    //this.getItemStock();
   },
   methods: {
-    more() {
-      this.$axios.get("http://localhost:8081/api/user").then((result) => {
-        console.log(result);
-      });
-    },
+    addItem(){ this.itemCnt++; },
+    removeItem(){ this.itemCnt--; },
     getItemInfo(){
-      this.$axios.get('/api/admin/setItem/getItemInfo').then((result)=>{
-        this.items = Object.keys(result.data.items);
-        this.items.forEach((key, idx) => {
-          this.itemPrices[idx] = result.data.items[key];
+      this.$axios.get('/api/admin/Item/getItem').then((result)=>{
+        this.itemName = Object.keys(result.data.itemPrice);
+        this.itemName.forEach((key, idx) => {
+          this.itemPrices[idx] = result.data.itemPrice[key];
+          this.itemStock[idx] = result.data.itemStock[key];
         });
-        this.itemCnt = result.data.itemCnt;
+        this.itemCnt = this.itemName.length;
       });
     },
+    getItemStock(){
+      this.$axios.get('/api/admin/getStock').then();
+    },
+    setPrice(price, index){
+      this.itemPrices[index - 1] = price;
+    },
+    setStock(stock, index){
+      this.itemStock[index - 1] = stock;
+    },
+    setTitle(title, index){
+      this.itemName[index - 1] = title;
+    },
+    setMeminfo(aa){
+      this.memRole = aa.data.memRole;
+      console.log(this.memRole);
+    }
   },
 };
 </script>

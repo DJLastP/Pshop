@@ -23,10 +23,10 @@
               <a class="nav-link text-light" href="/itemList">주문하기</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/">주문내역</a>
+              <a class="nav-link text-light" href="/login">주문내역</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/">내정보</a>
+              <a class="nav-link text-light" href="/join">내정보</a>
             </li>
           </ul>
         </div>

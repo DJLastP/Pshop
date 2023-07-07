@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/UserController');
+const userController = require('../controllers/MemberController');
 const priceController = require('../controllers/priceController');
 
 router.post('/setPrice', priceController.setPrice);
