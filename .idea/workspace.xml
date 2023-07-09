@@ -5,24 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04be2e71-ee5f-4cd7-a6ba-fff49f38a82b" name="변경" comment="주문하기">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/ItemController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/middleWare/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Member.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/ItemRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/user/Join.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/user/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01236b94-0883-436c-a62e-e9e58981aae7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01236b94-0883-436c-a62e-e9e58981aae7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/MemberController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Stock.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/priceRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/priceRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/AdminHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/user/ItemList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/order.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/user/UserHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/UserHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/user/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/order.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +70,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2S3KaNzeK1JEhZJoZd9kHY8xnbf" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -94,7 +86,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jisooyoon/Documents/vscode/Pshop/Pshop/frontend/src/components/admin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/vuenode/Pshop/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -116,6 +108,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\vuenode\Pshop\backend" />
       <recent name="$PROJECT_DIR$/frontend/src/components/admin" />
       <recent name="$PROJECT_DIR$/backend/models" />
     </key>
@@ -132,6 +125,10 @@
       <workItem from="1688428619055" duration="1505000" />
       <workItem from="1688527451382" duration="12723000" />
       <workItem from="1688709928089" duration="5999000" />
+      <workItem from="1688770889142" duration="6155000" />
+      <workItem from="1688868572471" duration="1675000" />
+      <workItem from="1688877597860" duration="4865000" />
+      <workItem from="1688888260096" duration="57000" />
     </task>
     <servers />
   </component>

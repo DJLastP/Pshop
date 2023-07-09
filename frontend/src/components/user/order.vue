@@ -71,6 +71,7 @@ export default {
     itemPrices: Array,
     itemCnt: Number,
     itemStock: Array,
+    memRole: String,
   },
   beforeUpdate() {
     this.orderInit()

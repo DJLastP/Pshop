@@ -3,9 +3,12 @@
     <userHeader v-if="memRole === 'USER'"/>
     <AdminHeader v-if="memRole ==='ADMIN'"/>
     <router-view :itemName="itemName" :itemPrices="itemPrices" :itemCnt="itemCnt"
-                 :itemStock="itemStock" @addItem="addItem()" @removeItem="removeItem()"
+                 :itemStock="itemStock" :memRole="memRole" @addItem="addItem()" @removeItem="removeItem()"
                  @price="setPrice" @stock="setStock" @editTitle="setTitle" @loginSucces="setMeminfo">
     </router-view>
+
+    <button @click="$store.commit('setTest')">test</button>
+    {{ $store.state.test }}
 
     {{memRole}}
   </div>

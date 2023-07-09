@@ -4,7 +4,7 @@ import Item from "./components/admin/Item.vue";
 import SetItem from "./components/admin/SetItem.vue";
 import Join from "./components/user/Join.vue";
 import Login from "./components/user/Login.vue";
-import Vue from '../src/App.vue';
+//import Vue from '../src/App.vue';
 
 
 
@@ -36,9 +36,15 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach(() => {
-    console.log(Vue.data().memRole);
+router.beforeEach((from) => {
+    console.log(from);
     //const memRole = Vue.$root.role;
+
+    //쿠키정보꺼내기
+    //없으면 로그인페이지 보내기
+    //쿠키에서 사용자권한확인
+    //페이지 이동할때마다 권한정보 실어보내기
+
 });
 
 
