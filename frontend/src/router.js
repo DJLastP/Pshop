@@ -6,8 +6,6 @@ import Join from "./components/user/Join.vue";
 import Login from "./components/user/Login.vue";
 //import Vue from '../src/App.vue';
 
-
-
 const routes = [
     {
         path: "/item",
@@ -36,8 +34,7 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach((from) => {
-    console.log(from);
+router.beforeEach(() => {
     //const memRole = Vue.$root.role;
 
     //쿠키정보꺼내기

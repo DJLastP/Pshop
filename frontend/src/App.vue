@@ -1,16 +1,17 @@
 <template>
   <div>
-    <userHeader v-if="memRole === 'USER'"/>
-    <AdminHeader v-if="memRole ==='ADMIN'"/>
+    <userHeader v-if="$store.state.memRole == 0"/>
+    <AdminHeader v-if="$store.state.memRole == 1"/>
     <router-view :itemName="itemName" :itemPrices="itemPrices" :itemCnt="itemCnt"
                  :itemStock="itemStock" :memRole="memRole" @addItem="addItem()" @removeItem="removeItem()"
                  @price="setPrice" @stock="setStock" @editTitle="setTitle" @loginSucces="setMeminfo">
     </router-view>
 
     <button @click="$store.commit('setTest')">test</button>
+    <button @click="$store.dispatch('access')">access</button>
     {{ $store.state.test }}
 
-    {{memRole}}
+    {{$store.state.memRole}}
   </div>
 </template>
 

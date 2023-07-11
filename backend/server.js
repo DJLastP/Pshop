@@ -6,6 +6,7 @@ const cors = require('cors');
 const port = process.env.PORT
 //body-parser
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const priceRoutes = require('./routes/priceRoutes.js');
 const memberRoutes = require('./routes/MemberRoutes.js');
@@ -15,6 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 //CORS보안해제
 app.use(cors());
+//bodyParser사용
+app.use(bodyParser.json());
+app.use(cookieParser());
 //라우터설정
 app.use("/admin", priceRoutes);
 app.use("/admin/item", itemRoutes);
