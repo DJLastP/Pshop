@@ -8,7 +8,7 @@ const port = process.env.PORT
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-const priceRoutes = require('./routes/priceRoutes.js');
+const orderRoutes = require('./routes/OrderRoutes.js');
 const memberRoutes = require('./routes/MemberRoutes.js');
 const itemRoutes = require('./routes/ItemRoutes.js');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,8 +20,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 //라우터설정
-app.use("/admin", priceRoutes);
-app.use("/admin/item", itemRoutes);
+app.use("/order", orderRoutes);
+app.use("/item", itemRoutes);
 app.use("/member", memberRoutes);
 //서버오픈
 app.listen(port, () => {

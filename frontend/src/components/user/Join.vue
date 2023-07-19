@@ -13,7 +13,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <input type="text" v-model="memInfo.memPwChk">비번확인
+        <input type="password" v-model="memInfo.memPwChk">비번확인
       </div>
     </div>
     <div class="row">
@@ -34,7 +34,6 @@ export default {
   name: "Join",
   data(){
     return{
-      //memInfo: { 'memId': memId , 'memPw': this.memPw },
       memInfo: {
         memId: '',
         memPw: '',

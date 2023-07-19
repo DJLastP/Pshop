@@ -6,8 +6,9 @@ const memberSchema = mongoose.Schema({
     memTell : { type: String, required: true },
     memRole : { type: String, required: true, default: 'USER' },
     isAuth : { type: String, required: true, default: 'N' },
-    regDate: { type: Date, default: Date.now }
+    regDate: { type: Date, default: Date.now },
+    memLevel: { type: String, default: 'D' }
 });
 
-const Stock = mongoose.model('Member', memberSchema);
-module.exports = Stock;
+const Member = mongoose.model('Member', memberSchema);
+module.exports = Member;

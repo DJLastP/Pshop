@@ -1,17 +1,10 @@
 <template>
-  <div>
-    <userHeader v-if="$store.state.memRole == 0"/>
-    <AdminHeader v-if="$store.state.memRole == 1"/>
-    <router-view :itemName="itemName" :itemPrices="itemPrices" :itemCnt="itemCnt"
-                 :itemStock="itemStock" :memRole="memRole" @addItem="addItem()" @removeItem="removeItem()"
-                 @price="setPrice" @stock="setStock" @editTitle="setTitle" @loginSucces="setMeminfo">
+  <div class="container px-0">
+    <userHeader v-if="$store.state.memRole === 0"/>
+    <AdminHeader v-if="$store.state.memRole === 1"/>
+    <router-view>
     </router-view>
 
-    <button @click="$store.commit('setTest')">test</button>
-    <button @click="$store.dispatch('access')">access</button>
-    {{ $store.state.test }}
-
-    {{$store.state.memRole}}
   </div>
 </template>
 
@@ -23,11 +16,6 @@ export default {
   name: "App",
   data() {
     return {
-      itemName: [],
-      itemPrices: [],
-      itemCnt: 0,
-      itemStock: [],
-      memRole: '',
     };
   },
   components: {
@@ -35,38 +23,8 @@ export default {
     AdminHeader,
   },
   created() {
-    this.getItemInfo();
-    //this.getItemStock();
   },
   methods: {
-    addItem(){ this.itemCnt++; },
-    removeItem(){ this.itemCnt--; },
-    getItemInfo(){
-      this.$axios.get('/api/admin/Item/getItem').then((result)=>{
-        this.itemName = Object.keys(result.data.itemPrice);
-        this.itemName.forEach((key, idx) => {
-          this.itemPrices[idx] = result.data.itemPrice[key];
-          this.itemStock[idx] = result.data.itemStock[key];
-        });
-        this.itemCnt = this.itemName.length;
-      });
-    },
-    getItemStock(){
-      this.$axios.get('/api/admin/getStock').then();
-    },
-    setPrice(price, index){
-      this.itemPrices[index - 1] = price;
-    },
-    setStock(stock, index){
-      this.itemStock[index - 1] = stock;
-    },
-    setTitle(title, index){
-      this.itemName[index - 1] = title;
-    },
-    setMeminfo(aa){
-      this.memRole = aa.data.memRole;
-      console.log(this.memRole);
-    }
   },
 };
 </script>
@@ -74,4 +32,12 @@ export default {
 
 
 <style>
+.container {
+  width: 100%; /* 가로 폭을 화면 크기에 맞게 설정합니다. */
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow-x: hidden;
+}
 </style>

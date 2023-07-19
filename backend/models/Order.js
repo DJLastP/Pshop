@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const orderSchema = mongoose.Schema({
-    order : { type: Object, required: true },
-    memId : { type: Object, required: true },
+    orderCnt : { type: Object, required: true },
+    orderPrice : { type: Object, required: true },
+    orderId : { type: ObjectId, ref: 'Member' ,required: true },
+    memId : { type: String, required: true },
     totalPrice : { type: Number, required: true },
     date: { type: Date, default: Date.now }
 });

@@ -2,6 +2,7 @@ const Member = require('../models/Member');
 const bcrypt = require('bcrypt')
 const db = require('../db.js');
 const jwt = require('jsonwebtoken');
+const ObjectId = require('mongodb').ObjectId;
 
 
 exports.join = async (req, res) => {
@@ -31,16 +32,18 @@ exports.join = async (req, res) => {
     })
 
     if(member){
-        memInfo = {
+        let memInfo = {
             _id: member._id,
             memId: member.memId,
             memRole: member.memRole,
         }
 
-        memInfo = {
-            accessToken: generateAccessToken(memInfo),
-            refreshToken: generateRefreshToken(memInfo)
-        }
+        memInfo.accessToken = jwt.sign({ memInfo }, process.env.ACCESS_SECRET , {
+            expiresIn: '5m',
+        });
+        memInfo.refreshToken = jwt.sign({ memInfo }, process.env.REFRESH_SECRET , {
+            expiresIn: '7d',
+        })
 
         // res.cookie("accessToken", generateAccessToken(memInfo),{
         // secure : false,
@@ -60,14 +63,25 @@ exports.login = async (req, res) => {
 
     const { memId, memPw } = req.body
     const member = await Member.findOne({ memId })
+    
+    if(member.isAuth === 'N'){
+        res.status(400).json('가입대기중');
+        return;
+    }
+    
     if(member && (await bcrypt.compare(memPw, member.memPw))){
-            memInfo = {
-                _id: member._id,
-                memId: member.memId,
-                memRole: member.memRole
-            };
-            memInfo.accessToken = generateAccessToken(memInfo),
-            memInfo.refreshToken = generateRefreshToken(memInfo)
+            let memInfo = {
+                    _id: member._id,
+                    memId: member.memId,
+                    memRole: member.memRole
+                  };
+            memInfo.accessToken = jwt.sign({ memInfo, }, process.env.ACCESS_SECRET , {
+                expiresIn: '5m',
+            });
+            memInfo.refreshToken = jwt.sign({ memInfo, }, process.env.REFRESH_SECRET , {
+                expiresIn: '7d',
+            })
+
 
             res.status(200).json(memInfo)
     } else {
@@ -77,36 +91,47 @@ exports.login = async (req, res) => {
 //accessToken 검증
 exports.access = async (req, res) => {
     try{
-
-        const token = req.headers['authorization'].split(' ')[1];
-        const data = jwt.verify(token, process.env.REFRESH_SECRET);
-        const memberInfo = await Member.findOne({ memId: data.memInfo.memId }).select(['-memPw', '-memTell']);
-
+        const token = req.body.accessToken;
+        if(token == null){
+            return res.status(400).json({ error: '엑세스토큰없음'});
+        }
+        const data = await jwt.verify(token, process.env.ACCESS_SECRET);
+        const memberInfo = await Member.findOne({ memId: data.memId }).select(['-memPw', '-memTell'])
+            .then()
+            .catch(err => { 
+                res.status(400).json({ error: '엑세스검증실패'});
+            });
         res.json(memberInfo);
-
     } catch (error) {
-        res.status(400).json(error);
+        res.status(400).json({ error: '엑세스토큰없음'});
     }
-
 }
 
 //access Token은없고 refresh토큰만 있는 경우 엑세스토큰재발행
 exports.refresh = async (req, res) => {
     // access toekn 을 갱신 하기위한 토큰
     try{
-        const token = req.cookies.refreshToken;
-        const data = jwt.verify(token, process.env.REFRESH_SECRET);
-        const memInfo = await Member.findOne({ memId: data.memInfo.memId }).select(['-memPw', '-memTell']);
+        const token = req.body.refreshToken;
+
+        if(token == null){
+            return res.status(500).json('리플레쉬토큰없음');
+        }
+        const data = await jwt.verify(token, process.env.REFRESH_SECRET);
+
+        let memInfo = await Member.findOne({ memId: data.memInfo.memId }).select(['-memPw', '-memTell']);
 
         memInfo = {
-            accessToken: generateAccessToken(memInfo),
-            refreshToken: generateRefreshToken(memInfo)
+            accessToken: jwt.sign({ memInfo, }, process.env.ACCESS_SECRET , {
+                expiresIn: '5m',
+            }),
+            refreshToken: jwt.sign({ memInfo, }, process.env.REFRESH_SECRET , {
+                expiresIn: '7d',
+            })
         }
 
         res.json(memInfo);
-
     } catch (error) {
-
+        res.status(400).json({ error: '리플레쉬검증실패'});
     }
 }
 
@@ -114,7 +139,8 @@ exports.refresh = async (req, res) => {
 exports.logout = (req, res) => {
 
     try {
-        req.cookie('accessToken', '');
+        res.cookie('accessToken', '');
+        res.cookie('refreshToken', '');
         res.status(200).json('logout 성공');
     } catch (error) {
         res.status(500).json('logout 실패');
@@ -135,23 +161,44 @@ exports.loginSuccess = async (req, res) => {
 
         res.status(500).json(error);
     }
-
-
 }
 
+exports.memInfo = async (req, res) => {
 
-const generateAccessToken = (memInfo) => {
-    return jwt.sign({memInfo}, process.env.ACCESS_SECRET , {
-        expiresIn: '15m',
-    });
+    try {
+        let memberList = await Member.find({}).sort({'isAuth': 1}).select(['-memPw']);
+        res.json(memberList);
+
+    } catch (e) {
+        res.json(e)
+    }
 }
 
-const generateRefreshToken = (memInfo) => {
-    return jwt.sign({memInfo}, process.env.REFRESH_SECRET , {
-        expiresIn: '30d',
-    });
+exports.updateIsAuth = async (req, res) => {
+    try {
+        const data = req.body;
+        data.checked ? data.isAuth = 'Y' : data.isAuth = 'N'
+
+        result = await Member.updateOne( { _id: data._id  }, {$set: { isAuth: data.isAuth }} )
+
+        res.json('업데이트 성공')
+
+    } catch (e) {
+        res.json(e)
+    }
 }
 
+exports.updateGroup = async (req, res) => {
+    try {
+        const data = req.body;
+        let result = await Member.updateOne( { _id: data._id  }, {$set: { memLevel: data.value }} )
+
+        res.json('그룹 변경 성공')
+
+    } catch (e) {
+        res.json(e)
+    }
+}
 
 // exports.join = (req, res) => {
 //

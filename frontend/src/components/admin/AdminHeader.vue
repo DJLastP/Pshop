@@ -16,18 +16,34 @@
         <div class="collapse navbar-collapse" id="adminNavbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-light" aria-current="page" href="#"
-                >Home</a
-              >
+              <router-link to="/" class="nav-link active text-light">
+                Home
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/setItem">상품관리</a>
+              <router-link to="/setItem" class="nav-link active text-light">
+                상품관리
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="">주문내역</a>
+              <router-link to="/" class="nav-link active text-light">
+                주문내역
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">회원관리</a>
+              <router-link to="/memInfo" class="nav-link active text-light">
+                회원관리
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/group" class="nav-link active text-light">
+                그룹관리
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <a @click="this.$store.dispatch('logout')" class="nav-link active text-light">
+                로그아웃
+              </a>
             </li>
           </ul>
         </div>

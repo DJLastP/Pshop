@@ -10,8 +10,8 @@
     </div>
     <div class="row justify-content-center d-flex">
       <div class="col-6 text-center">
-        <label for="idInput" class="form-label">Password</label>
-        <input v-model="memInfo.memPw" type="password" id="idInput" class="form-control">
+        <label for="pwInput" class="form-label">Password</label>
+        <input v-model="memInfo.memPw" type="password" id="pwInput" class="form-control">
       </div>
     </div>
     <div class="row my-3 justify-content-center d-flex">
@@ -42,17 +42,7 @@ export default {
     }
   },
   methods: {
-    login(){
-      let loginInfo = {
-        'memId': this.memId,
-        'memPw' : this.memPw
-      };
-      this.$axios.post('/api/member/login', loginInfo).then(result => {
-        console.log(result);
-        this.$emit('loginSucces', result);
-        this.$router.push('/itemList');
-      });
-    }
+
   },
 };
 </script>

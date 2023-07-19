@@ -5,36 +5,34 @@ import router from './router';
 const store = createStore({
     state(){
         return {
-            test : 'test',
-            itemName: [],
-            itemPrices: [],
-            itemCnt: 0,
-            itemStock: [],
             isLogin: false,
-            memRole: null,
+            memRole: 0,
         }
     },
     mutations :{
-        setTest(state){
-          state.test = 'test2'
-        },
         setMemRole(state, payload){
-            payload == 'USER' ? state.memRole = 0 : state.memRole = 1;
-        }
+            payload === 'USER' ? state.memRole = 0 : state.memRole = 1;
+        },
+        setLogin(state){
+            state.isLogin = true;
+        },
+        setLogout(state){
+            state.isLogin = false;
+        },
+        logout(){
+        },
+        setNavbarOpen(state, isOpen) {
+            state.isNavbarOpen = isOpen;
+        },
     },
     actions : {
-        login(context, payload ) {
-           axios.post('/api/member/login', payload).then(response => {
-           const accessToken = response.data.accessToken;
-           const refreshToken = response.data.refreshToken;
-           localStorage.setItem('accessToken', accessToken);
-           localStorage.setItem('refreshToken', refreshToken);
+        async login(context, payload ) {
+           await axios.post('/api/member/login', payload).then(response => {
+           localStorage.setItem('accessToken', response.data.accessToken);
+           localStorage.setItem('refreshToken', response.data.refreshToken);
            context.commit('setMemRole', response.data.memRole);
-
-           //state.memRole = response.data.memRole;
-        //    console.log(response.data.memRole);
-        //    console.log(state.memRole);
-           router.push('/itemList')
+           context.commit('setLogin');
+           router.push('/')
         })
         .catch(() => {
             alert('로그인 실패');
@@ -43,14 +41,24 @@ const store = createStore({
         async access(context) {
             await axios.get('/api/member/access').then(result => {
                 context.commit('setMemRole', result.data.memRole);
-                console.log(result);
+            })
+            .catch(()=>{
+                console.log('엑세스토큰실패')
             });
-            //.catch(console.log('토큰 재발행 실패'));
         },
-        join(state, payload){
-            axios.post('/api/member/join', payload).then(result =>{
+        async join(state, payload){
+            await axios.post('/api/member/join', payload).then(result =>{
                 console.log(result);
             });
+        },
+        async logout(context){
+            await axios.get('/api/member/logout').then(() => {
+                    alert('로그아웃 완료');
+                    localStorage.clear();
+                    context.commit('setLogout');
+                    router.push('/');
+                }
+            );
         },
     }
 })

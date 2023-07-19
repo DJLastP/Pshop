@@ -17,16 +17,29 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+              <router-link to="/" class="nav-link active text-light">
+                Home
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/itemList">주문하기</a>
+              <router-link to="/order" class="nav-link active text-light">
+                주문하기
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/login">주문내역</a>
+              <router-link to="/userOrder" class="nav-link active text-light">
+                주문내역
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/join">내정보</a>
+              <router-link to="/join" class="nav-link active text-light">
+                내정보
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <a @click="this.$store.dispatch('logout')" class="nav-link active text-light">
+                로그아웃
+              </a>
             </li>
           </ul>
         </div>
@@ -36,8 +49,15 @@
 </template>
 
 <script>
+
 export default {
   name: "UserHeader",
+  data(){
+    return {
+    }
+  },
+  methods: {
+  },
 };
 </script>
 
