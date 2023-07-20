@@ -1,7 +1,9 @@
 const Member = require('../models/Member');
+const Notify = require('../models/Notify')
 const bcrypt = require('bcrypt')
 const db = require('../db.js');
 const jwt = require('jsonwebtoken');
+const Order = require("../models/Order");
 const ObjectId = require('mongodb').ObjectId;
 
 
@@ -45,13 +47,6 @@ exports.join = async (req, res) => {
             expiresIn: '7d',
         })
 
-        // res.cookie("accessToken", generateAccessToken(memInfo),{
-        // secure : false,
-        // httpOnly : true });
-
-        // res.cookie("refreshToken", generateRefreshToken(memInfo),{
-        // secure : false });
-
     } else {
         res.status(400)
         throw new Error('회원가입실패')
@@ -64,7 +59,7 @@ exports.login = async (req, res) => {
     const { memId, memPw } = req.body
     const member = await Member.findOne({ memId })
     
-    if(member.isAuth === 'N'){
+    if(member == null || member.isAuth === 'N'){
         res.status(400).json('가입대기중');
         return;
     }
@@ -120,6 +115,12 @@ exports.refresh = async (req, res) => {
 
         let memInfo = await Member.findOne({ memId: data.memInfo.memId }).select(['-memPw', '-memTell']);
 
+        if(memInfo == null || memInfo.isAuth === 'N'){
+            res.status(400).json('가입대기중');
+            return;
+        }
+
+
         memInfo = {
             accessToken: jwt.sign({ memInfo, }, process.env.ACCESS_SECRET , {
                 expiresIn: '5m',
@@ -148,14 +149,25 @@ exports.logout = (req, res) => {
 
 }
 
-exports.loginSuccess = async (req, res) => {
+exports.myPage = async (req, res) => {
     try {
-        const token = req.cookies.accessToken;
-        const data = jwt.verify(token, process.env.ACCESS_SECRET);
 
-        const memInfo = await Member.findOne({ memId: data.memInfo.memId }).select(['-memPw', '-memTell']);
+        let token = req.headers.authorization;
+        if (token && token.startsWith('Bearer ')) {
+            // "Bearer " 부분을 제거하고 토큰만 추출
+            token = token.slice(7);
+        }
+        const memInfo = await jwt.verify(token, process.env.ACCESS_SECRET);
 
-        res.status(200).json(memInfo);
+        let result = {};
+
+        let mem = await Member.findOne({ memId: memInfo.memInfo.memId }).sort({ date: -1}).select(['memId', 'memTell', 'regDate'])
+
+        let orderList = await Order.findOne({ memId: memInfo.memInfo.memId }).sort({ date: -1}).select(['-memPw', '-memLevel']);
+        //주문횟수
+        let orderCount= await Order.countDocuments({ memId: memInfo.memInfo.memId });
+
+        res.status(200).json({mem, orderList, orderCount});
 
     } catch (error) {
 
@@ -179,7 +191,7 @@ exports.updateIsAuth = async (req, res) => {
         const data = req.body;
         data.checked ? data.isAuth = 'Y' : data.isAuth = 'N'
 
-        result = await Member.updateOne( { _id: data._id  }, {$set: { isAuth: data.isAuth }} )
+        await Member.updateOne( { _id: data._id  }, {$set: { isAuth: data.isAuth }} );
 
         res.json('업데이트 성공')
 
@@ -200,52 +212,29 @@ exports.updateGroup = async (req, res) => {
     }
 }
 
-// exports.join = (req, res) => {
-//
-//     let member = new Member;
-//     const { memId, memPw, memTell } = req.body;
-//     member.memId = memId;
-//     member.memPw = memPw;
-//     member.memTell = memTell;
-//
-//
-//     member.save().then(result => {
-//         res.json(result);
-//     });
-//     res.json('성공');
-//
-// }
-//
-// exports.login = (req, res) => {
-//
-//     const { memId, memPw } = req.body;
-//
-//     try {
-//
-//         let user = User.findOne({ memId });
-//         if (user) {
-//             return res.statusCode(400).json({ errors: [{msg: "아이디가 이미 존재합니다."}]});
-//         };
-//
-//         user = new User({})
-//
-//     } catch (error) {
-//
-//     };
-//
-//
-//
-//     Member.findOne({memId,}).then(result => {
-//         console.log(result.memPw);
-//
-//         if(memPw === result.memPw){
-//             let loginInfo = {
-//                 _id: result._id,
-//                 memRole: result.memRole
-//             };
-//             res.json(loginInfo);
-//         }
-//     })
-//
-// }
+//공지조회
+exports.getNotify = async (req, res) => {
+    try {
+        await Notify.findOne().sort({ date: -1}).then(result =>{
+            res.json(result)
+        });
 
+    } catch (e) {
+        res.status(400);
+    }
+}
+
+//공지등록
+exports.setNotify = async (req, res) => {
+    try {
+        const data = req.body;
+        let notify = new Notify(data);
+        notify.save().then(result => {
+            res.json(result);
+        });
+
+    } catch (e) {
+        res.status(400);
+    }
+    
+}

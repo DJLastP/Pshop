@@ -94,6 +94,7 @@ export default {
             , sendData)
             .then(() => {
               this.getItemInfo()
+              alert('업데이트 성공');
             });
       },
       addItem(){ this.itemCnt++; },

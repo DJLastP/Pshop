@@ -12,15 +12,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(mem, index) in memInfo" :key="index" class="justify-content-center">
-          <td>{{ index + 1}}</td>
-          <td>{{ mem.memId }}</td>
-          <td>{{ mem.memTell }}</td>
-          <td class="">
-            <input class="form-check" type="checkbox" :checked="mem.isAuth === 'Y'" @change="toggleCheckbox(mem._id, $event.target.checked)" />
+        <tr v-for="(mem, index) in memInfo" :key="index">
+          <td class="justify-content-center align-items-center">{{ index + 1}}</td>
+          <td class="justify-content-center align-items-center">{{ mem.memId }}</td>
+          <td class="justify-content-center align-items-center">{{ mem.memTell }}</td>
+          <td class="justify-content-center align-items-center">
+              <div class="form-check form-switch justify-content-center align-items-center d-flex">
+                <input class="form-check-input danger" type="checkbox" role="switch" id="" :checked="mem.isAuth === 'Y'" @change="toggleCheckbox(mem._id, $event.target.checked)">
+              </div>
           </td>
-          <td>
-            <select style="text-align: center;" class="form-control" :value="mem.memLevel" @change="updateGroup(mem._id, $event.target.value)">
+          <td class="justify-content-center align-items-center px-0">
+            <select style="text-align: center; width: 50px" class="form-control py-0" :value="mem.memLevel" @change="updateGroup(mem._id, $event.target.value)">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
@@ -67,7 +69,6 @@ export default {
 };
 </script>
 
-
-
 <style>
+
 </style>

@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Order from './components/user/order.vue';
-import Item from "./components/admin/Item.vue";
+import OrderList from "./components/admin/OrderList.vue";
 import SetItem from "./components/admin/SetItem.vue";
 import Join from "./components/user/Join.vue";
 import UserOrder from "./components/user/UserOrder.vue";
@@ -8,18 +8,24 @@ import Login from "./components/user/Login.vue";
 import Home from "./components/user/home.vue";
 import memberInfo from "./components/admin/memberInfo.vue";
 import group from "./components/admin/group.vue";
+import MyPage from "./components/user/myPage.vue";
 import axios from "axios";
 //import Vue from '../src/App.vue';
 
 const routes = [
     {
-        path: "/item",
-        component: Item,
+        path: "/orderList",
+        component: OrderList,
         meta: { requiresAuth: true },
     },
     {
         path: "/userOrder",
         component: UserOrder,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: "/myPage",
+        component: MyPage,
         meta: { requiresAuth: true },
     },
     {

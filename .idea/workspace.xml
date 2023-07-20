@@ -4,43 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04be2e71-ee5f-4cd7-a6ba-fff49f38a82b" name="변경" comment="주문하기">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/OrderController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Group.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/OrderRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/group.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/admin/memberInfo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/user/UserOrder.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/user/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="04be2e71-ee5f-4cd7-a6ba-fff49f38a82b" name="변경" comment="JWT완료 주문목록작업중">
+      <change afterPath="$PROJECT_DIR$/backend/models/Notify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Menu.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/user/myPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/user/orderCard.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/01236b94-0883-436c-a62e-e9e58981aae7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01236b94-0883-436c-a62e-e9e58981aae7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2023-07-12__4_51__________.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2023-07-12_오후_4_51,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/ItemController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/ItemController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/ItemInfoController.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/MemberController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/MemberController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/priceController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/ItemInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Member.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Member.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Price.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Users.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/ItemRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/ItemRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/OrderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/OrderController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/MemberRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/MemberRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/priceRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Container.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/AdminHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/AdminHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/OrderList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/ItemName.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/SetItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/SetItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/user/ItemPrice.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/group.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/group.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/admin/memberInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/admin/memberInfo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/user/Join.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/Join.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/user/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/user/UserHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/UserHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/user/UserOrder.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/UserOrder.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/user/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/user/order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user/order.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
@@ -54,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Composition API Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -167,7 +156,9 @@
       <workItem from="1689469543782" duration="18552000" />
       <workItem from="1689544764721" duration="45947000" />
       <workItem from="1689633322127" duration="12439000" />
-      <workItem from="1689750465568" duration="11355000" />
+      <workItem from="1689750465568" duration="26442000" />
+      <workItem from="1689811468778" duration="24000" />
+      <workItem from="1689811651521" duration="17458000" />
     </task>
     <task id="LOCAL-00001" summary="회원기능">
       <created>1688770722862</created>
@@ -176,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688770722862</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="JWT완료 주문목록작업중">
+      <created>1689763929699</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689763929700</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +194,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="주문하기" />
     <MESSAGE value="회원기능" />
-    <option name="LAST_COMMIT_MESSAGE" value="회원기능" />
+    <MESSAGE value="JWT완료 주문목록작업중" />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT완료 주문목록작업중" />
   </component>
 </project>

@@ -105,8 +105,8 @@ export default {
         this.order[index] ? orderCnt[name] = this.order[index] : orderCnt[name] = 0;
         orderPrice[name] = this.itemPrices[index];
       });
-      this.$axios.post('/api/order/setOrder', {orderPrice, orderCnt, 'totalPrice' : this.totalPrice}).then((result) => {
-        console.log(result);
+      this.$axios.post('/api/order/setOrder', {orderPrice, orderCnt, 'totalPrice' : this.totalPrice}).then(() => {
+        this.$router.push('/userOrder');
       })
     },
   }

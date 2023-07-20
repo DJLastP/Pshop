@@ -10,5 +10,8 @@ router.get('/logout', MemberController.logout);
 router.get('/memInfo', MemberController.memInfo);
 router.post('/updateIsAuth', MemberController.updateIsAuth);
 router.post('/updateGroup', MemberController.updateGroup);
+router.get('/getNotify', MemberController.getNotify);
+router.post('/setNotify', MemberController.setNotify);
+router.get('/getMyPage', MemberController.myPage);
 
 module.exports = router;

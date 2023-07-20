@@ -16,7 +16,7 @@
     </div>
     <div class="row my-3 justify-content-center d-flex">
       <div class="col-6 text-center">
-        <button @click="this.$store.dispatch('login', memInfo)"  class="btn btn-danger mx-5">Login</button>
+        <button @click="this.$store.dispatch('login', memInfo)" :disabled="isMatch"  class="btn btn-danger mx-5">Login</button>
       </div>
     </div>
     <div class="row my-3 justify-content-center d-flex">
@@ -40,6 +40,11 @@ export default {
         memPw: '',
       }
     }
+  },
+  computed : {
+    isMatch() {
+      return Object.values(this.memInfo).some((value) => !value);
+    },
   },
   methods: {
 

@@ -1,35 +1,39 @@
 <template>
-  <div class="">
-    <table class="table text-center ">
-      <tbody class="">
-        <tr class="align-items-center">
-          <td class=""><span>A그룹 : </span></td>
-          <td>
-            <input type="text" class="form-control" v-model="groupInfo['A']">
-          </td>
-        </tr>
-        <tr>
-          <td><span>B그룹 : </span></td>
-          <td>
-            <input type="text" class="form-control" v-model="groupInfo['B']">
-          </td>
-        </tr>
-        <tr>
-          <td><span>C그룹 : </span></td>
-          <td>
-            <input type="text" class="form-control" v-model="groupInfo['C']">
-          </td>
-        </tr>
-        <tr>
-          <td><span>D그룹 : </span></td>
-          <td>
-            <input type="text" class="form-control" v-model="groupInfo['D']">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button @click="setGroup()">저장</button>
-    <div class="row mt-5">
+  <div class="row justify-content-center mt-3">
+    <div class="col-10 justify-content-center">
+      <table class="table text-center">
+        <tbody>
+          <tr class="">
+            <td class="align-middle"><span>A그룹 : </span></td>
+            <td>
+              <input type="text" class="form-control" v-model="groupInfo['A']">
+            </td>
+          </tr>
+          <tr>
+            <td class="align-middle"><span>B그룹 : </span></td>
+            <td>
+              <input type="text" class="form-control" v-model="groupInfo['B']">
+            </td>
+          </tr>
+          <tr>
+            <td class="align-middle"><span>C그룹 : </span></td>
+            <td>
+              <input type="text" class="form-control" v-model="groupInfo['C']">
+            </td>
+          </tr>
+          <tr>
+            <td class="align-middle"><span>D그룹 : </span></td>
+            <td>
+              <input type="text" class="form-control" v-model="groupInfo['D']">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-8 justify-content-center d-flex mt-5">
+      <button class="btn-danger btn" @click="setGroup()">저장</button>
+    </div>
+    <div class="row mt-3">
       <span class="text-end">마지막 업데이트 : {{ lastDate }}</span>
     </div>
 

@@ -59,7 +59,6 @@ exports.setOrder = async (req, res) => {
 //회원주문리스트
 exports.getUserOrder = async (req, res) => {
     try {
-        const data = req.body;
         let token = req.headers.authorization;
         if (token && token.startsWith('Bearer ')) {
             // "Bearer " 부분을 제거하고 토큰만 추출

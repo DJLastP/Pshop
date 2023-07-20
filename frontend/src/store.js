@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import axios from "axios";
 import router from './router';
+import createPersistedState from 'vuex-persistedstate';
 
 const store = createStore({
     state(){
@@ -18,6 +19,7 @@ const store = createStore({
         },
         setLogout(state){
             state.isLogin = false;
+            this.memRole = 0;
         },
         logout(){
         },
@@ -53,14 +55,15 @@ const store = createStore({
         },
         async logout(context){
             await axios.get('/api/member/logout').then(() => {
-                    alert('로그아웃 완료');
-                    localStorage.clear();
                     context.commit('setLogout');
-                    router.push('/');
+                    localStorage.clear();
+                    alert('로그아웃 완료');
+                    router.go(0);
                 }
             );
         },
-    }
+    },
+    plugins: [createPersistedState()],
 })
 
 export default store
